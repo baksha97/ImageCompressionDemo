@@ -116,8 +116,8 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
         
         
         //Check/test to see if compressed image has been correctly compressed and does not equal nil (null)
-        if let compressedImageData = chosenImage.jpegData(compressed: .lowest) { //lowest to show the most change in compression
-            let compressedImage = UIImage(data: compressedImageData)!
+        //lowest to show the most change in compression
+        if let compressedImageData = chosenImage.jpegData(compressed: .lowest), let compressedImage = UIImage(data: compressedImageData) {
             print("compressed image debug:")
             print(compressedImageData.debugDescription)
             imageView.image = compressedImage
