@@ -11,16 +11,16 @@ import UIKit
 class ViewController: UIViewController {
 
     //MARK: Image Picker Controller
-    // Image picker will be used to visualize choosing image.
+    //Image picker will be used to visualize choosing image.
     let imagePicker = UIImagePickerController()
     /*
      If you are having an error output of:
-     Please ensure that you have included the proper properties in the Info.plist to access your device's components. 
-     {Error Domain=PlugInKit Code=13 "query cancelled" UserInfo={NSLocalizedDescription=query cancelled}"}
+        {Error Domain=PlugInKit Code=13 "query cancelled" UserInfo={NSLocalizedDescription=query cancelled}"}
+     - Please ensure that you have included the proper properties in the Info.plist to access your device's components.
      
-     Go to:
-     Product > Scheme > Edit Scheme > Environment Variables ---SET---> OS_ACTIVITY_MODE: disable
-     --- Seems to be due to the update to Swift 4 from Swift 3.
+     -Go to:
+        Product > Scheme > Edit Scheme > Environment Variables ---SET---> OS_ACTIVITY_MODE: disable
+     ---- Known problem; seems to be due to the update to Swift 4 from Swift 3.
      */
     
     //MARK: UI Components
@@ -134,7 +134,7 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
         dismiss(animated: true, completion: nil)
     }
     
-    //Optional but expected through Apple design guidelines
+    //Optional but expected in documentation
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion:nil)
     }
