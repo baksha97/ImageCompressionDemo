@@ -21,8 +21,8 @@ extension UIImage {
     }
     
     /// Returns the data for the specified image in JPEG format.
-    //  We will return an image data object in JPEG format because UIImageJPEGRepresentation allows us to conviently compress our objects with a Float that is less than 1, but more than 0.
-    //  If a specific compression rate is consistently rathered, we can remove the enum and replace the parameter.
+    //  We will return an image data object in JPEG format because UIImageJPEGRepresentation allows us to conveniently compress our objects with a Float that is less than 1, but more than 0.
+    //  If a specific compression rate is consistently preferred, we can remove the enum and replace the parameter.
     
     func jpegData(compressed rate: JPEGCompressionQualityRate) -> Data? {
         return UIImageJPEGRepresentation(self, rate.rawValue)

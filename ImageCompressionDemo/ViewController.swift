@@ -31,8 +31,10 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //initalize delegation for the image picker
+        //initialize delegation for the image picker
         imagePicker.delegate = self
+        //set fit for view controller image view
+        imageView.contentMode = .scaleAspectFit
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -47,7 +49,7 @@ class ViewController: UIViewController {
 
     func openMenu(){
         // Create alert of type .alert
-        // If preffered, we may change to action sheet for a different type of interface view.
+        // If preferred, we may change to action sheet for a different type of interface view.
         let alertController = UIAlertController(title: "Select Image",
                                                 message: "Choose Location of Image",
                                                 preferredStyle: .alert)
