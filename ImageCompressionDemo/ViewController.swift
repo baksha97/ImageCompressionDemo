@@ -44,8 +44,6 @@ class ViewController: UIViewController {
     @IBAction func menuDidTap(_ sender: Any) {
         openMenu()
     }
-    
-    
 
     func openMenu(){
         // Create alert of type .alert
@@ -103,7 +101,11 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
     //Swift 3 -> 4 changes require @objc in function header for this selector.
     @objc func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
-        let chosenImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+        //if we wanted to use the image without being cropped to a square
+        //let chosenImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+        
+        //image that we have cropped
+        let chosenImage = info[UIImagePickerControllerEditedImage] as! UIImage
         
         //We will be running a debug test with our initial image to check compression & size reduction...
         if let chosenImageData = chosenImage.jpegData(compressed: .highest){ //used highest to keep original size
