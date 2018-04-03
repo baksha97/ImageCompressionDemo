@@ -12,6 +12,7 @@
 		2E95BEF72073AC080016B926 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E95BEF52073AC080016B926 /* Main.storyboard */; };
 		2E95BEF92073AC080016B926 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E95BEF82073AC080016B926 /* Assets.xcassets */; };
 		2E95BEFC2073AC080016B926 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E95BEFA2073AC080016B926 /* LaunchScreen.storyboard */; };
+		2E95BF062073EA3A0016B926 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E95BF052073EA3A0016B926 /* UIImageExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		2E95BEF82073AC080016B926 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2E95BEFB2073AC080016B926 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2E95BEFD2073AC090016B926 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2E95BF052073EA3A0016B926 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 			children = (
 				2E95BEF12073AC080016B926 /* AppDelegate.swift */,
 				2E95BEF32073AC080016B926 /* ViewController.swift */,
+				2E95BF052073EA3A0016B926 /* UIImageExtension.swift */,
 				2E95BEF52073AC080016B926 /* Main.storyboard */,
 				2E95BEF82073AC080016B926 /* Assets.xcassets */,
 				2E95BEFA2073AC080016B926 /* LaunchScreen.storyboard */,
@@ -138,6 +141,7 @@
 			files = (
 				2E95BEF42073AC080016B926 /* ViewController.swift in Sources */,
 				2E95BEF22073AC080016B926 /* AppDelegate.swift in Sources */,
+				2E95BF062073EA3A0016B926 /* UIImageExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
