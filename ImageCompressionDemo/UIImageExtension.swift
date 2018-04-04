@@ -18,6 +18,8 @@ extension UIImage {
         case medium  = 0.5
         case high    = 0.75
         case highest = 1
+        
+        case profilePicture = 0.2 // an example of a default compression setting that may be applicable. 
     }
     
     /// Returns the data for the specified image in JPEG format.

@@ -129,6 +129,7 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
         }else{
             //Possible because: The image has no data or if the CGImageRef bitmap format isn't supported.
             print("The image has no data or if the CGImageRef bitmap format isn't supported.")
+            //We can display a dialog of error if needed. 
         }
 
         dismiss(animated: true, completion: nil)
