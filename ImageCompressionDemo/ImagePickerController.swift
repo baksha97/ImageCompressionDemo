@@ -18,7 +18,7 @@ class ImagePickerController: NSObject{
     
     //MARK: Components
     private lazy var imagePicker = UIImagePickerController() //lazy init for memory - will not initialize until first accessed
-    //opinional values used due to the possibility of initializing class with nil values
+    //non opinional values used due to no possibility of initializing class with nil values
     private var alertController: UIAlertController!
     private var viewController: UIViewController!
     
