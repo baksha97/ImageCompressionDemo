@@ -17,13 +17,13 @@ typealias ImagePickerAction = (UIImage) -> Void
 class ImagePickerController: NSObject{
     
     //MARK: Components
-    lazy var imagePicker = UIImagePickerController() //lazy init for memory - will not initialize until first accessed
+    private lazy var imagePicker = UIImagePickerController() //lazy init for memory - will not initialize until first accessed
     //opinional values used due to the possibility of initializing class with nil values
-    var alertController: UIAlertController!
-    var viewController: UIViewController!
+    private var alertController: UIAlertController!
+    private var viewController: UIViewController!
     
     //saving the action to be completed
-    var action: ImagePickerAction
+    private var action: ImagePickerAction
     
     
     //usage of specific paramaters to guarantee that this UIViewController also conforms to the delegate protocol.
@@ -34,7 +34,7 @@ class ImagePickerController: NSObject{
         self.configureAlertController()
     }
     
-    //public method, will not proceed with presentation if view controller has not been set due to opinional value
+    //public method
     func presentAlert(){
         viewController.present(alertController!, animated: true)
     }
