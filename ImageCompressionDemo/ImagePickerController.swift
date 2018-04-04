@@ -10,10 +10,8 @@ import UIKit
 
 //Modular approach
 
-protocol ImagePickerControllerDelegate: class {
-    
-    func imagePicker(picker: ImagePickerController, didSelectImage image: UIImage)
-}
+typealias ImagePickerAction = (UIImage) -> Void
+
 
 //Single class may be used for clean reuse of code and to prevent pollution of a UIViewController.
 class ImagePickerController: NSObject{
@@ -24,18 +22,20 @@ class ImagePickerController: NSObject{
     var alertController: UIAlertController?
     var viewController: UIViewController?
     
-    var delegate: ImagePickerControllerDelegate?
+    //saving the action to be completed
+    var action: ImagePickerAction?
+    
     
     //cannot override NSObject init() with a parameter, so we may use a conviencience init with init().
     //usage of specific paramaters to guarantee that this UIViewController also conforms to the delegate protocol.
-    convenience init<T: UIViewController & ImagePickerControllerDelegate>(for viewController: T){
+    convenience init(for viewController: UIViewController, action: @escaping ImagePickerAction){
         self.init()
+        self.action = action
         configureAlertController()
         self.viewController = viewController
-        delegate = self.viewController as? ImagePickerControllerDelegate
     }
     
-    //public method, will not work if view controller has not been set due to opinional value
+    //public method, will not proceed with presentation if view controller has not been set due to opinional value
     func presentAlert(){
         viewController?.present(alertController!, animated: true)
     }
@@ -125,16 +125,10 @@ extension ImagePickerController: UIImagePickerControllerDelegate, UINavigationCo
             print("compressed image debug:")
             print(compressedImageData.debugDescription)
             
-            //TEST WITH VIEWCONTROLLER CLASS --- sending it back
-            if let validDelegate = delegate{
-                validDelegate.imagePicker(picker: self, didSelectImage: compressedImage)
-            }
+            //an action may not be set, we can use an if-let for a more intuitive error checking
+            action?(compressedImage)
             
-            /*
-             IMPORTANT: In here ^^^, we would begin to perform any type of transaction for the image.
-             Example: Uploading it to a server or storing on a device.
-             When we store these types of data, we have the option of uploading the ImageData object itself, or we may convert it to a UIImage and then proceed.
-             */
+    
         }else{
             //Possible because: The image has no data or if the CGImageRef bitmap format isn't supported.
             print("The image has no data or if the CGImageRef bitmap format isn't supported.")

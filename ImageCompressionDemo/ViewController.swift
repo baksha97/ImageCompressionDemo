@@ -18,27 +18,56 @@
 
 import UIKit
 
-class ViewController: UIViewController, ImagePickerControllerDelegate{
-    
+class ViewController: UIViewController{
 
     //MARK: Custom Image Picker Controller - singular object prevents pollution in a UIViewController
-    var picker: ImagePickerController?
+    var picker1: ImagePickerController?
+    var picker2: ImagePickerController?
     
     //MARK: UI Components
-    @IBOutlet weak var imageView: UIImageView! //Image view will be used to visualize choosing image.
-    @IBOutlet weak var menuButton: UIButton!
-
+    @IBOutlet weak var imageView: UIImageView! //Image view will be used to visualize choosing image.    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        //REQUIRED TO USE CONVIENIENCE INIT TO SET THE VIEW CONTROLLER.
-        picker = ImagePickerController(for: self)
         //set fit for view controller image view
         imageView.contentMode = .scaleAspectFit
+        configurePickers()
+    }
+    
+    func configurePickers(){
+        //REQUIRED TO USE CONVIENIENCE INIT TO SET THE VIEW CONTROLLER.
+        picker1 = ImagePickerController(for: self, action: { (image) in
+            
+            /*
+             IMPORTANT: In here ^^^, we would begin to perform any type of transaction for the image.
+             Example: Uploading it to a server or storing on a device.
+             When we store these types of data, we have the option of uploading the ImageData object itself, or we may convert it to a UIImage and then proceed.
+             --- We would just need to change the ImagePickerAction handle.
+            */
+            
+            print("action for picker 1")
+            self.imageView.image = image
+            print(image.debugDescription)
+        })
+        
+        picker2 = ImagePickerController(for: self, action: { (image) in
+            
+            /*
+             IMPORTANT: In here ^^^, we would begin to perform any type of transaction for the image.
+             Example: Uploading it to a server or storing on a device.
+             When we store these types of data, we have the option of uploading the ImageData object itself, or we may convert it to a UIImage and then proceed.
+             --- We would just need to change the ImagePickerAction handle.
+            */
+            
+            print("action for picker 2")
+            self.imageView.image = image
+            print(image.debugDescription)
+        })
     }
 
-    //example of a "open menu button"
-    @IBAction func menuDidTap(_ sender: Any) {
-        if let picker = picker{
+    //example of a request to change picture through the user interface.
+    @IBAction func button1DidTap(_ sender: Any) {
+        if let picker = picker1{
             picker.presentAlert()
         } else{
             //error handeling
@@ -46,9 +75,13 @@ class ViewController: UIViewController, ImagePickerControllerDelegate{
         }
     }
     
-    //required delegation method
-    func imagePicker(picker: ImagePickerController, didSelectImage image: UIImage) {
-        imageView.image = image
+    @IBAction func button2DidTap(_ sender: Any) {
+        if let picker = picker2{
+            picker.presentAlert()
+        } else{
+            //error handeling
+            //fatalAsset() ---> because convienience init(){} must be used.
+        }
     }
 
 

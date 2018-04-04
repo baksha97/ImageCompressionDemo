@@ -19,24 +19,31 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c2G-rZ-9cP">
-                                <rect key="frame" x="168" y="586" width="39" height="30"/>
+                                <rect key="frame" x="106" y="586" width="163" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Menu"/>
+                                <state key="normal" title="Picker Action Example 1"/>
                                 <connections>
-                                    <action selector="menuDidTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hMM-aD-ng6"/>
+                                    <action selector="button1DidTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hMM-aD-ng6"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ree-VD-pLC">
                                 <rect key="frame" x="16" y="20" width="343" height="558"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j0X-jX-nHq">
+                                <rect key="frame" x="105" y="624" width="165" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Picker Action Example 2"/>
+                                <connections>
+                                    <action selector="button2DidTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5Tr-Hi-Nmn"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="imageView" destination="Ree-VD-pLC" id="48Q-c4-3EU"/>
-                        <outlet property="menuButton" destination="c2G-rZ-9cP" id="qIL-3b-wEB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
