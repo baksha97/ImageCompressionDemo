@@ -23,15 +23,15 @@ class ImagePickerController: NSObject{
     var viewController: UIViewController!
     
     //saving the action to be completed
-    var action: ImagePickerAction?
+    var action: ImagePickerAction
     
     
     //usage of specific paramaters to guarantee that this UIViewController also conforms to the delegate protocol.
     init(for viewController: UIViewController, action: @escaping ImagePickerAction){
-        super.init()
-        self.action = action
-        configureAlertController()
         self.viewController = viewController
+        self.action = action
+        super.init()
+        self.configureAlertController()
     }
     
     //public method, will not proceed with presentation if view controller has not been set due to opinional value
@@ -125,7 +125,7 @@ extension ImagePickerController: UIImagePickerControllerDelegate, UINavigationCo
             print(compressedImageData.debugDescription)
             
             //an action may not be set, we can use an if-let for a more intuitive error checking
-            action?(compressedImage)
+            action(compressedImage)
             
     
         }else{

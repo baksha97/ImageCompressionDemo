@@ -35,7 +35,6 @@ class ViewController: UIViewController{
     }
     
     func configurePickers(){
-        
         picker1 = ImagePickerController(for: self, action: { (image) in
             
             /*
