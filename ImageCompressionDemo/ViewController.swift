@@ -35,7 +35,7 @@ class ViewController: UIViewController{
     }
     
     func configurePickers(){
-        //REQUIRED TO USE CONVIENIENCE INIT TO SET THE VIEW CONTROLLER.
+        
         picker1 = ImagePickerController(for: self, action: { (image) in
             
             /*
@@ -71,7 +71,7 @@ class ViewController: UIViewController{
             picker.presentAlert()
         } else{
             //error handeling
-            //fatalAsset() ---> because convienience init(){} must be used. 
+            //fatalAsset() ---> because init(){} must be used.
         }
     }
     
@@ -80,7 +80,7 @@ class ViewController: UIViewController{
             picker.presentAlert()
         } else{
             //error handeling
-            //fatalAsset() ---> because convienience init(){} must be used.
+            //fatalAsset() ---> because init(){} must be used.
         }
     }
 

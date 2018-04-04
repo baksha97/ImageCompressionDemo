@@ -18,18 +18,17 @@ class ImagePickerController: NSObject{
     
     //MARK: Components
     lazy var imagePicker = UIImagePickerController() //lazy init for memory - will not initialize until first accessed
-    //opinional values used due to the possibility of initializing class with init(){} instead of convienience init(){}
-    var alertController: UIAlertController?
-    var viewController: UIViewController?
+    //opinional values used due to the possibility of initializing class with nil values
+    var alertController: UIAlertController!
+    var viewController: UIViewController!
     
     //saving the action to be completed
     var action: ImagePickerAction?
     
     
-    //cannot override NSObject init() with a parameter, so we may use a conviencience init with init().
     //usage of specific paramaters to guarantee that this UIViewController also conforms to the delegate protocol.
-    convenience init(for viewController: UIViewController, action: @escaping ImagePickerAction){
-        self.init()
+    init(for viewController: UIViewController, action: @escaping ImagePickerAction){
+        super.init()
         self.action = action
         configureAlertController()
         self.viewController = viewController
@@ -37,7 +36,7 @@ class ImagePickerController: NSObject{
     
     //public method, will not proceed with presentation if view controller has not been set due to opinional value
     func presentAlert(){
-        viewController?.present(alertController!, animated: true)
+        viewController.present(alertController!, animated: true)
     }
     
     //configure generic alert contorller
@@ -95,7 +94,7 @@ extension ImagePickerController: UIImagePickerControllerDelegate, UINavigationCo
             imagePicker.delegate = self
             imagePicker.allowsEditing = true
             imagePicker.sourceType = type
-            self.viewController?.present(imagePicker, animated: true, completion: nil)
+            self.viewController.present(imagePicker, animated: true, completion: nil)
         }else{
             print("access not allowed")
         }
@@ -136,11 +135,11 @@ extension ImagePickerController: UIImagePickerControllerDelegate, UINavigationCo
             //fatalError() if closing application is more relevant to context of usage.
         }
         
-        self.viewController?.dismiss(animated: true, completion: nil)
+        self.viewController.dismiss(animated: true, completion: nil)
     }
     
     //Optional but expected in documentation
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        self.viewController?.dismiss(animated: true, completion:nil)
+        self.viewController.dismiss(animated: true, completion:nil)
     }
 }
