@@ -27,7 +27,7 @@ class ImagePickerController: NSObject{
     var delegate: ImagePickerControllerDelegate?
     
     //cannot override NSObject init() with a parameter, so we may use a conviencience init with init().
-    //usage of specific paramaters to guarantee that this UIViewController also conforms to the deletegate protocol.
+    //usage of specific paramaters to guarantee that this UIViewController also conforms to the delegate protocol.
     convenience init<T: UIViewController & ImagePickerControllerDelegate>(for viewController: T){
         self.init()
         configureAlertController()
