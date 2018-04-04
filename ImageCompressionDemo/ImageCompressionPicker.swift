@@ -14,7 +14,7 @@ typealias ImagePickerAction = (UIImage) -> Void
 
 
 //Single class may be used for clean reuse of code and to prevent pollution of a UIViewController.
-class ImagePickerController: NSObject{
+class ImageCompressionPicker: NSObject{
     
     //MARK: Components
     private lazy var imagePicker = UIImagePickerController() //lazy init for memory - will not initialize until first accessed
@@ -23,6 +23,7 @@ class ImagePickerController: NSObject{
     private var viewController: UIViewController!
     
     //saving the action to be completed
+    //allows for multiple instances in on view controller to perform different actions.
     private var action: ImagePickerAction
     
     
@@ -31,12 +32,14 @@ class ImagePickerController: NSObject{
         self.viewController = viewController
         self.action = action
         super.init()
+        // instance variables should be configured prior to super.init(), but we cannot call self functions until after.
         self.configureAlertController()
+        // we may only use this customization function after super.init().
     }
     
-    //public method
-    func presentAlert(){
-        viewController.present(alertController!, animated: true)
+    //public function to present alert
+    public func presentAlert(){
+        viewController.present(alertController, animated: true)
     }
     
     //configure generic alert contorller
@@ -83,20 +86,20 @@ class ImagePickerController: NSObject{
 
 //Seperation of methods for this OBJECT'S protocols of UIImagePickerControllerDelegate & UINavigationControllerDelegate.
 //Allows use to increase readability of our view and allows reuse by simply refactoring the extension name - if needed.
-extension ImagePickerController: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+extension ImageCompressionPicker: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     
 //MARK: Delegation methods
     
     //parameter allows method to be reused with multiple sources.
     private func selectPhoto(from type: UIImagePickerControllerSourceType){
-        //crops photo to square to fit certain constraints; set to false if not prefered.
         if UIImagePickerController.isSourceTypeAvailable(type){
             imagePicker.delegate = self
-            imagePicker.allowsEditing = true
+            imagePicker.allowsEditing = true //crops photo to square to fit certain constraints; set to false if not prefered.
             imagePicker.sourceType = type
             self.viewController.present(imagePicker, animated: true, completion: nil)
         }else{
-            print("access not allowed")
+            //May implement an ask dialog to ask for specific type settings.
+            print("Unable to access data for type: \(type)")
         }
         
     }

@@ -21,8 +21,8 @@ import UIKit
 class ViewController: UIViewController{
 
     //MARK: Custom Image Picker Controller - singular object prevents pollution in a UIViewController
-    var picker1: ImagePickerController?
-    var picker2: ImagePickerController?
+    var picker1: ImageCompressionPicker?
+    var picker2: ImageCompressionPicker?
     
     //MARK: UI Components
     @IBOutlet weak var imageView: UIImageView! //Image view will be used to visualize choosing image.    
@@ -35,7 +35,7 @@ class ViewController: UIViewController{
     }
     
     func configurePickers(){
-        picker1 = ImagePickerController(for: self, action: { (image) in
+        picker1 = ImageCompressionPicker(for: self, action: { (image) in
             
             /*
              IMPORTANT: In here ^^^, we would begin to perform any type of transaction for the image.
@@ -49,7 +49,7 @@ class ViewController: UIViewController{
             print(image.debugDescription)
         })
         
-        picker2 = ImagePickerController(for: self, action: { (image) in
+        picker2 = ImageCompressionPicker(for: self, action: { (image) in
             
             /*
              IMPORTANT: In here ^^^, we would begin to perform any type of transaction for the image.

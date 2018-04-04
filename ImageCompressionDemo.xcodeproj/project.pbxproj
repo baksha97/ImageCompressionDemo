@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2E4CDE3020746D94005E134D /* ImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4CDE2F20746D94005E134D /* ImagePickerController.swift */; };
+		2E4CDE3020746D94005E134D /* ImageCompressionPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4CDE2F20746D94005E134D /* ImageCompressionPicker.swift */; };
 		2E95BEF22073AC080016B926 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E95BEF12073AC080016B926 /* AppDelegate.swift */; };
 		2E95BEF42073AC080016B926 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E95BEF32073AC080016B926 /* ViewController.swift */; };
 		2E95BEF72073AC080016B926 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E95BEF52073AC080016B926 /* Main.storyboard */; };
@@ -17,7 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2E4CDE2F20746D94005E134D /* ImagePickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerController.swift; sourceTree = "<group>"; };
+		2E4CDE2F20746D94005E134D /* ImageCompressionPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCompressionPicker.swift; sourceTree = "<group>"; };
 		2E95BEEE2073AC080016B926 /* ImageCompressionDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageCompressionDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E95BEF12073AC080016B926 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2E95BEF32073AC080016B926 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -64,7 +64,7 @@
 				2E95BEF82073AC080016B926 /* Assets.xcassets */,
 				2E95BEFA2073AC080016B926 /* LaunchScreen.storyboard */,
 				2E95BEFD2073AC090016B926 /* Info.plist */,
-				2E4CDE2F20746D94005E134D /* ImagePickerController.swift */,
+				2E4CDE2F20746D94005E134D /* ImageCompressionPicker.swift */,
 				2E95BF052073EA3A0016B926 /* UIImageExtension.swift */,
 			);
 			path = ImageCompressionDemo;
@@ -145,7 +145,7 @@
 				2E95BEF42073AC080016B926 /* ViewController.swift in Sources */,
 				2E95BEF22073AC080016B926 /* AppDelegate.swift in Sources */,
 				2E95BF062073EA3A0016B926 /* UIImageExtension.swift in Sources */,
-				2E4CDE3020746D94005E134D /* ImagePickerController.swift in Sources */,
+				2E4CDE3020746D94005E134D /* ImageCompressionPicker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
