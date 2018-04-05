@@ -21,15 +21,16 @@ class ImageCompressionPicker: NSObject{
     //non opinional values used due to no possibility of initializing class with nil values
     private var alertController: UIAlertController!
     private var viewController: UIViewController!
-    
+    private var compressionQualityRate: JPEGCompressionQualityRate!
     //saving the action to be completed
     //allows for multiple instances in on view controller to perform different actions.
     private var action: ImagePickerAction
     
     
     //usage of specific paramaters to guarantee that this UIViewController also conforms to the delegate protocol.
-    init(for viewController: UIViewController, action: @escaping ImagePickerAction){
+    init(for viewController: UIViewController, compressionQualityRate: JPEGCompressionQualityRate, action: @escaping ImagePickerAction){
         self.viewController = viewController
+        self.compressionQualityRate = compressionQualityRate
         self.action = action
         super.init()
         // instance variables should be configured prior to super.init(), but we cannot call self functions until after.
@@ -123,13 +124,11 @@ extension ImageCompressionPicker: UIImagePickerControllerDelegate, UINavigationC
         
         //Check/test to see if compressed image has been correctly compressed and does not equal nil (null)
         //lowest to show the most change in compression
-        if let compressedImageData = chosenImage.jpegData(compressed: .lowest), let compressedImage = UIImage(data: compressedImageData) {
+        if let compressedImageData = chosenImage.jpegData(compressed: compressionQualityRate), let compressedImage = UIImage(data: compressedImageData) {
             print("compressed image debug:")
             print(compressedImageData.debugDescription)
-            
             //an action may not be set, we can use an if-let for a more intuitive error checking
             action(compressedImage)
-            
     
         }else{
             //Possible because: The image has no data or if the CGImageRef bitmap format isn't supported.

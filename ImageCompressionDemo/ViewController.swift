@@ -35,7 +35,7 @@ class ViewController: UIViewController{
     }
     
     func configurePickers(){
-        picker1 = ImageCompressionPicker(for: self, action: { (image) in
+        picker1 = ImageCompressionPicker(for: self, compressionQualityRate: .lowest, action: { (image) in
             
             /*
              IMPORTANT: In here ^^^, we would begin to perform any type of transaction for the image.
@@ -49,7 +49,7 @@ class ViewController: UIViewController{
             print(image.debugDescription)
         })
         
-        picker2 = ImageCompressionPicker(for: self, action: { (image) in
+        picker2 = ImageCompressionPicker(for: self, compressionQualityRate: .lowest, action: { (image) in
             
             /*
              IMPORTANT: In here ^^^, we would begin to perform any type of transaction for the image.
